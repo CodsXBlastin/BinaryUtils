@@ -27,7 +27,7 @@ class BinaryStream {
     private _buffer: Buffer;
     private _offset: number;
 
-    constructor(buffer: Buffer = Buffer.alloc(0), offset: number = 0) {
+  constructor(buffer: Buffer = Buffer.alloc(0), offset: number = 0) {
         this._buffer = buffer;
         this._offset = offset;
     }
@@ -36,15 +36,15 @@ class BinaryStream {
      * Appends a buffer to the binary one.
      */
     public append(buffer: Buffer): void {
-        this._buffer = Buffer.concat([this._buffer, buffer]);
-        this.addOffset(Buffer.byteLength(buffer));
+        this._buffer = Buffer.concat([this._buffer, buffer])
+        this.addOffset(Buffer.byteLength(buffer))
     }
 
     /**
      *  Reads a buffer slice with the given length
      * from the actual offset to the offset + len
      */
-    public read(len: number): Buffer {
+  public read(len: number): Buffer {
         return this._buffer.slice(this._offset, this.addOffset(len, true));
     }
 
